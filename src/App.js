@@ -48,13 +48,11 @@ class App extends Component {
     return ( 
       <div className = "App" >
         <div id="content">
-          <button className="button--previous" onClick={e => this.decId()}><i class="fas fa-chevron-left"></i></button>
           {
             this.state.title ? 
             <Slide director={this.state.director} title={this.state.title} image={this.state.image[this.state.index]} incId={this.incId} decId={this.decId}/>
             :<p>LOADING</p>
           }
-          <button className="button--next" onClick={e => this.incId()}><i class="fas fa-chevron-right"></i></button>
         </div>
       </div>
     )
