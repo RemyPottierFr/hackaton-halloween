@@ -8,6 +8,9 @@ class Slide extends Component {
     render(){
         return(
             <div className="slide">
+                <audio autoPlay>
+                    <source src={props} type="audio/mpeg"/>
+                </audio>
                 <button className="button--previous" onClick={e => this.props.decId()}><i className="fas fa-chevron-left"></i></button>
                 <img className={`poster ${this.props.showInfo ? "blur":""}`} src={`https://raw.githubusercontent.com/RemyPottierFr/hackaton-halloween/feature/image/${this.props.image}.png`} alt={this.props.id} />
                 <button onClick={e => this.props.info()} className="info--button"><i className="fas fa-info-circle"></i></button>
