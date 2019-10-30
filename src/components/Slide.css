@@ -1,7 +1,3 @@
-.wall{
-    display: flex;
-    flex-wrap:wrap;
-}
-.movie-desc{
+.slide{
     margin: 25px;
 }

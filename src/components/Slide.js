@@ -5,6 +5,15 @@ import './Slide.css'
 class Slide extends Component {
     constructor(props) {
         super(props)
+        this.state={
+            director:null,
+            title:null,
+            image:null
+        }
+        this.name=this.name.bind(this)
+    }
+    componentDidMount(){
+        this.name(this.props.id)
     }
     name(i){
         const url = `https://hackathon-wild-hackoween.herokuapp.com/movies/${i}`
@@ -12,20 +21,20 @@ class Slide extends Component {
           .then( response => response.data )
           .then( movies =>{
             console.log(i+" : "+movies)
-            let moviesHtml = `
-              <div class="movie-desc">
-                <p>${this.props.id}</p>
-                <p>${movies.movie.title}</p>
-                <p>${movies.movie.director}</p>
-              </div>
-            `
-            document.querySelector('.container').innerHTML+=moviesHtml
+            this.setState({director:movies.movie.director})
+            this.setState({title:movies.movie.title})
           })
         
     }
     render(){
         return(
-                <div className="container">{this.name(this.props.id)}</div> 
+            <div className="slide">
+                <button onClick={e => this.props.decId()}>prev</button>
+                <p>Numéro dans l'API : {this.props.id}</p>
+                <p>Director : {this.state.director}</p>
+                <p>Title : {this.state.title}</p>
+                <button onClick={e => this.props.incId()}>suivant</button>
+            </div>
         )
     }
 }
