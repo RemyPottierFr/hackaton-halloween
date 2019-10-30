@@ -1,3 +1,25 @@
 .slide{
-    margin: 25px;
+    width: 100vw;
+    text-align: center;
+    background-color: green;
+    position:relative;
 }
+.poster{
+    width: 50vw;
+    height: 75vh;
+}
+.button--previous, .button--next{
+    position: absolute;
+    background-color: transparent;
+    border:none;
+    z-index: 2;
+    top:50%;
+    padding: 15px;
+    font-size: 24px;
+  }
+  .button--previous{
+    left: 50px;
+  }
+  .button--next{
+    right:50px;
+  }

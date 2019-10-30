@@ -1,5 +1,4 @@
 import React,{Component} from 'react';
-import axios from 'axios'
 import './Slide.css'
 
 class Slide extends Component {
@@ -9,10 +8,9 @@ class Slide extends Component {
     render(){
         return(
             <div className="slide">
-                <p>Numéro dans l'API : {this.props.id}</p>
+                <img className="poster" src={`https://raw.githubusercontent.com/RemyPottierFr/hackaton-halloween/feature/image/${this.props.image}.jpg`} alt={this.props.id} />
                 <p>Director : {this.props.director}</p>
                 <p>Title : {this.props.title}</p>
-                <button onClick={e => this.props.incId()}>suivant</button>
             </div>
         )
     }

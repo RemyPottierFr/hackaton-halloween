@@ -9,13 +9,16 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state={
-      id:1,
+      id:[18,67,68,69,71],
+      image:["saw","baby-dead","Shining","Nosferatus","ça"],
+      index:0,
       director:null,
       title:null
     }
   }
   componentDidMount(){
-    this.request(this.state.id)
+    console.log(this.state.index)
+    this.request(this.state.id[this.state.index])
   }
   request(i){
     const url = `https://hackathon-wild-hackoween.herokuapp.com/movies/${i}`
@@ -28,23 +31,31 @@ class App extends Component {
       })
   }
   incId = () => {
-    this.state.id<=0 ? this.setState(prevState => ({id:1})):this.setState(prevState => ({id:prevState.id+1}))
-    this.request(this.state.id)
+    this.state.index === this.state.id.length - 1 ?
+    this.setState({index:0}):
+    this.setState(prevState => ({index:prevState.index+1}))
+    console.log(this.state.index)
+    this.request(this.state.id[this.state.index])
   }
   decId = () => {
-    this.state.id<=1 ? this.setState(prevState => ({id:1})):this.setState(prevState => ({id:prevState.id-1}))
-    this.request(this.state.id)
+    this.state.index === 0 ?
+    this.setState({index:this.state.id.length-1}):
+    this.setState(prevState => ({index:prevState.index-1}))
+    console.log(this.state.index)
+    this.request(this.state.id[this.state.index])
   }
   render() {
     return ( 
       <div className = "App" >
-        <button onClick={e => this.decId()}>prev</button>
-        {
-          this.state.title ? 
-          <Slide id={this.state.id} director={this.state.director} title={this.state.title}/>
-          :<p>LOADING</p>
-        }
-        <button onClick={e => this.incId()}>suivant</button>
+        <div id="content">
+          <button className="button--previous" onClick={e => this.decId()}><i class="fas fa-chevron-left"></i></button>
+          {
+            this.state.title ? 
+            <Slide director={this.state.director} title={this.state.title} image={this.state.image[this.state.index]} incId={this.incId} decId={this.decId}/>
+            :<p>LOADING</p>
+          }
+          <button className="button--next" onClick={e => this.incId()}><i class="fas fa-chevron-right"></i></button>
+        </div>
       </div>
     )
   }
