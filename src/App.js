@@ -9,8 +9,8 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state={
-      id:[18,67,68,69,71],
-      image:["saw","baby-dead","Shining","Nosferatus","ça"],
+      id:[17,67,68,69,71],
+      image:["SAW","Psychose","Shining","dawn-of-the-dead","Nosferatu"],
       index:0,
       director:null,
       title:null
@@ -31,18 +31,19 @@ class App extends Component {
       })
   }
   incId = () => {
+    console.log(this.state.index,'color:red')
     this.state.index === this.state.id.length - 1 ?
     this.setState({index:0}):
-    this.setState(prevState => ({index:prevState.index+1}))
-    console.log(this.state.index)
-    this.request(this.state.id[this.state.index])
+    this.setState(prevState => ({index:prevState.index +1}))
+    console.log(this.state.index,'color:blue')
+    this.request(this.state.id[this.state.index+1])
   }
   decId = () => {
     this.state.index === 0 ?
     this.setState({index:this.state.id.length-1}):
     this.setState(prevState => ({index:prevState.index-1}))
     console.log(this.state.index)
-    this.request(this.state.id[this.state.index])
+    this.request(this.state.id[this.state.index-1])
   }
   render() {
     return ( 
