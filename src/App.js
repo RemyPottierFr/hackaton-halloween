@@ -28,11 +28,11 @@ class App extends Component {
       })
   }
   incId = () => {
-    this.setState(prevState => ({id:prevState.id+1}))
+    this.state.id<=0 ? this.setState(prevState => ({id:1})):this.setState(prevState => ({id:prevState.id+1}))
     this.request(this.state.id)
   }
   decId = () => {
-    this.setState(prevState => ({id:prevState.id-1}))
+    this.state.id<=1 ? this.setState(prevState => ({id:1})):this.setState(prevState => ({id:prevState.id-1}))
     this.request(this.state.id)
   }
   render() {
@@ -44,7 +44,7 @@ class App extends Component {
           <Slide id={this.state.id} director={this.state.director} title={this.state.title}/>
           :<p>LOADING</p>
         }
-        <button onClick={e => this.incId()}>prev</button>
+        <button onClick={e => this.incId()}>suivant</button>
       </div>
     )
   }
