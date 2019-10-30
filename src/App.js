@@ -2,7 +2,7 @@ import React, {
   Component
 } from 'react';
 import './App.css';
-import Slide from './components/Slide'
+import Slide from './components/Slide/Slide'
 import axios from 'axios'
 
 class App extends Component {
@@ -14,6 +14,7 @@ class App extends Component {
       index:0,
       director:null,
       title:null,
+      year:null,
       showInfo:false
     }
   }
@@ -27,7 +28,8 @@ class App extends Component {
       .then( movies =>{
         this.setState({
           director:movies.movie.director,
-          title:movies.movie.title
+          title:movies.movie.title,
+          year:movies.movie.year
         })
       })
   }
@@ -61,7 +63,7 @@ class App extends Component {
         <div id="content">
           {
             this.state.title ? 
-            <Slide info={this.info} showInfo={this.state.showInfo} director={this.state.director} title={this.state.title} image={this.state.image[this.state.index]} incId={this.incId} decId={this.decId}/>
+            <Slide info={this.info} showInfo={this.state.showInfo} director={this.state.director} title={this.state.title} image={this.state.image[this.state.index]} year={this.state.year} incId={this.incId} decId={this.decId}/>
             :<p>LOADING</p>
           }
         </div>

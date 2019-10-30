@@ -44,25 +44,46 @@
   }
   .info--hidden{
       opacity: 0;
-      height: 0;
+      height: 0px;
       transition: ease 0.3s;
       margin-top: 0;
       width: 80vw;
       margin-left:auto;
       margin-right:auto;
+      padding: 25px;
+      box-sizing: border-box;
+  }
+  .info--hidden p {
+      display: none;
   }
   .info--show{
       transition: ease 0.3s;
       opacity: 1;
       position: relative;
-      height: 81vh;
+      height: 80vh;
       margin:auto;
       margin-top: -80vh;
       width: 81vw;
       background-color: rgb(75, 74, 74);
+      padding: 25px;
+      box-sizing: border-box;
   }
-  .info--show p{
-      font-size: 24px;
-      color:rgb(255, 255, 255);
+  .info__title{
+      text-transform: uppercase;
+      font-size: 36px;
       font-weight: 700;
+      color:white;
+      margin-bottom: 25px;
+  }
+  .info__director{
+      text-align: left;
+      padding-left: 25px;
+      font-size: 24px;
+      color:white;
+  }
+  .info__desc{
+      text-align: center;
+      margin-top: 25px;
+      font-size: 16px;
+      color:white;
   }
