@@ -9,7 +9,6 @@ class Slide extends Component {
     render(){
         return(
             <div className="slide">
-                <button onClick={e => this.props.decId()}>prev</button>
                 <p>Numéro dans l'API : {this.props.id}</p>
                 <p>Director : {this.props.director}</p>
                 <p>Title : {this.props.title}</p>

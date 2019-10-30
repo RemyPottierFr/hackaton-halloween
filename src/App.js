@@ -38,11 +38,13 @@ class App extends Component {
   render() {
     return ( 
       <div className = "App" >
+        <button onClick={e => this.decId()}>prev</button>
         {
           this.state.title ? 
-          <Slide id={this.state.id} director={this.state.director} title={this.state.title} incId={this.incId} decId={this.decId}/>
+          <Slide id={this.state.id} director={this.state.director} title={this.state.title}/>
           :<p>LOADING</p>
         }
+        <button onClick={e => this.incId()}>prev</button>
       </div>
     )
   }
