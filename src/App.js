@@ -9,15 +9,15 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state={
-      id:[17,67,68,69,71],
+      id:[17,67,66,68,71],
       image:["SAW","Psychose","Shining","dawn-of-the-dead","Nosferatu"],
       index:0,
       director:null,
-      title:null
+      title:null,
+      showInfo:false
     }
   }
   componentDidMount(){
-    console.log(this.state.index)
     this.request(this.state.id[this.state.index])
   }
   request(i){
@@ -25,25 +25,35 @@ class App extends Component {
     axios.get(url)
       .then( response => response.data )
       .then( movies =>{
-        console.log(i+" : "+movies)
-        this.setState({director:movies.movie.director})
-        this.setState({title:movies.movie.title})
+        this.setState({
+          director:movies.movie.director,
+          title:movies.movie.title
+        })
       })
   }
   incId = () => {
-    console.log(this.state.index,'color:red')
-    this.state.index === this.state.id.length - 1 ?
-    this.setState({index:0}):
-    this.setState(prevState => ({index:prevState.index +1}))
-    console.log(this.state.index,'color:blue')
-    this.request(this.state.id[this.state.index+1])
+    this.state.index === this.state.id.length - 1
+      ? this.setState({ index: 0 })
+      : this.setState(prevState => {
+        return ({ index: prevState.index + 1})
+      })   
+      this.state.index === this.state.id.length - 1
+      ? this.request(this.state.id[0])
+      : this.request(this.state.id[this.state.index+1])
   }
   decId = () => {
-    this.state.index === 0 ?
-    this.setState({index:this.state.id.length-1}):
-    this.setState(prevState => ({index:prevState.index-1}))
-    console.log(this.state.index)
-    this.request(this.state.id[this.state.index-1])
+    this.state.index === 0
+      ? this.setState({ index: this.state.id.length - 1 })
+      : this.setState(prevState => {
+        return ({ index: prevState.index - 1})
+      })
+    this.state.index === 0
+    ? this.request(this.state.id[this.state.id.length - 1])
+    : this.request(this.state.id[this.state.index - 1])
+  }
+  info = () => {
+    console.log('info')
+    this.state.showInfo ? this.setState({showInfo:false}):this.setState({showInfo:true})
   }
   render() {
     return ( 
@@ -51,7 +61,7 @@ class App extends Component {
         <div id="content">
           {
             this.state.title ? 
-            <Slide director={this.state.director} title={this.state.title} image={this.state.image[this.state.index]} incId={this.incId} decId={this.decId}/>
+            <Slide info={this.info} showInfo={this.state.showInfo} director={this.state.director} title={this.state.title} image={this.state.image[this.state.index]} incId={this.incId} decId={this.decId}/>
             :<p>LOADING</p>
           }
         </div>

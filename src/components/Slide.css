@@ -4,8 +4,15 @@
     position:relative;
 }
 .poster{
-    width: 50vw;
-    height: 75vh;
+    width: 80vw;
+    height: 80vh;
+    transition:ease 0.3s;
+    position: relative;
+    z-index: 0;
+}
+.blur{
+    transition:ease 0.3s;
+    filter: blur(5px);
 }
 .button--previous, .button--next{
     position: absolute;
@@ -14,11 +21,48 @@
     z-index: 2;
     top:50%;
     padding: 15px;
-    font-size: 24px;
+    font-size: 56px;
+    color:white;
   }
   .button--previous{
     left: 50px;
   }
   .button--next{
     right:50px;
+  }
+  .info--button{
+      font-size: 36px;
+      color:white;
+      border:none;
+      background-color: transparent;
+      position: absolute;
+      left: 50%;
+      right: 50%;
+      bottom:25px;
+      transform: translate(-50%,50%);
+      z-index: 2;
+  }
+  .info--hidden{
+      opacity: 0;
+      height: 0;
+      transition: ease 0.3s;
+      margin-top: 0;
+      width: 80vw;
+      margin-left:auto;
+      margin-right:auto;
+  }
+  .info--show{
+      transition: ease 0.3s;
+      opacity: 1;
+      position: relative;
+      height: 81vh;
+      margin:auto;
+      margin-top: -80vh;
+      width: 81vw;
+      background-color: rgb(75, 74, 74);
+  }
+  .info--show p{
+      font-size: 24px;
+      color:rgb(255, 255, 255);
+      font-weight: 700;
   }
