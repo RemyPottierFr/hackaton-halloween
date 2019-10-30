@@ -64,7 +64,7 @@ class App extends Component {
         <div id="content">
           {
             this.state.title ? 
-            <Slide info={this.info} showInfo={this.state.showInfo} director={this.state.director} title={this.state.title} image={this.state.image[this.state.index]} music={this.state.music.index} year={this.state.year} incId={this.incId} decId={this.decId}/>
+            <Slide info={this.info} showInfo={this.state.showInfo} director={this.state.director} title={this.state.title} image={this.state.image[this.state.index]} music={this.state.music[this.state.index]} year={this.state.year} incId={this.incId} decId={this.decId}/>
             :<p>LOADING</p>
           }
         </div>
