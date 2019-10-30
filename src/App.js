@@ -3,24 +3,46 @@ import React, {
 } from 'react';
 import './App.css';
 import Slide from './components/Slide'
+import axios from 'axios'
 
 class App extends Component {
   constructor(props) {
     super(props)
     this.state={
-      id:5
+      id:1,
+      director:null,
+      title:null
     }
   }
-  incId(){
-    this.setState(prevState =>({id:prevState+1}))
+  componentDidMount(){
+    this.request(this.state.id)
   }
-  decId(){
-    this.setState(prevState =>({id:prevState-1}))
+  request(i){
+    const url = `https://hackathon-wild-hackoween.herokuapp.com/movies/${i}`
+    axios.get(url)
+      .then( response => response.data )
+      .then( movies =>{
+        console.log(i+" : "+movies)
+        this.setState({director:movies.movie.director})
+        this.setState({title:movies.movie.title})
+      })
+  }
+  incId = () => {
+    this.setState(prevState => ({id:prevState.id+1}))
+    this.request(this.state.id)
+  }
+  decId = () => {
+    this.setState(prevState => ({id:prevState.id-1}))
+    this.request(this.state.id)
   }
   render() {
     return ( 
       <div className = "App" >
-        <Slide id={this.state.id} incId={this.state.incId} decId={this.state.decId}/>
+        {
+          this.state.title ? 
+          <Slide id={this.state.id} director={this.state.director} title={this.state.title} incId={this.incId} decId={this.decId}/>
+          :<p>LOADING</p>
+        }
       </div>
     )
   }
