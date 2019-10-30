@@ -9,7 +9,7 @@ class Slide extends Component {
         return(
             <div className="slide">
                 <audio autoPlay>
-                    <source src={props} type="audio/mpeg"/>
+                    <source src={`https://github.com/RemyPottierFr/hackaton-halloween/blob/feature/music/${this.props.music}.mp3`}/>
                 </audio>
                 <button className="button--previous" onClick={e => this.props.decId()}><i className="fas fa-chevron-left"></i></button>
                 <img className={`poster ${this.props.showInfo ? "blur":""}`} src={`https://raw.githubusercontent.com/RemyPottierFr/hackaton-halloween/feature/image/${this.props.image}.png`} alt={this.props.id} />
