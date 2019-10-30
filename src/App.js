@@ -11,7 +11,7 @@ class App extends Component {
     this.state={
       id:[17,67,66,68,71],
       image:["SAW","Psychose","Shining","dawn-of-the-dead","Nosferatu"],
-      music:["Saw Theme Song- Hello Zepp","Theme from Psycho (1960) - Shower Scene HQ.mp3","Shining","dawn of the dead main theme","Hans Erdmann - Nosferatu [Main Theme] (1922)"],
+      music:["Saw Theme Song- Hello Zepp","Theme from Psycho (1960) - Shower Scene HQ","Shining","dawn of the dead main theme","Hans Erdmann - Nosferatu [Main Theme] (1922)"],
       index:0,
       director:null,
       title:null,

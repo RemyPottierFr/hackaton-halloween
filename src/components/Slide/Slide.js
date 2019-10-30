@@ -8,8 +8,8 @@ class Slide extends Component {
     render(){
         return(
             <div className="slide">
-                <audio autoPlay>
-                    <source src={`https://raw.githubusercontent.com/RemyPottierFr/hackaton-halloween/feature/music/${this.props.music}.mp3`}/>
+                <audio autoPlay
+                    source src={`https://raw.githubusercontent.com/RemyPottierFr/hackaton-halloween/feature/music/${this.props.music}.mp3`} type = {`audio/mp3`} >
                 </audio>
                 <button className="button--previous" onClick={e => this.props.decId()}><i className="fas fa-chevron-left"></i></button>
                 <img className={`poster ${this.props.showInfo ? "blur":""}`} src={`https://raw.githubusercontent.com/RemyPottierFr/hackaton-halloween/feature/image/${this.props.image}.png`} alt={this.props.id} />
