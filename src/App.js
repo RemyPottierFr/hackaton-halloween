@@ -16,7 +16,8 @@ class App extends Component {
       director:null,
       title:null,
       year:null,
-      showInfo:false
+      showInfo:false,
+      musicPlay:true
     }
   }
   componentDidMount(){
@@ -58,13 +59,16 @@ class App extends Component {
     console.log('info')
     this.state.showInfo ? this.setState({showInfo:false}):this.setState({showInfo:true})
   }
+  musicPlay = () =>{
+    this.state.musicPlay ? this.setState({musicPlay:false}):this.setState({musicPlay:true})
+  }
   render() {
     return ( 
       <div className = "App" >
         <div id="content">
           {
             this.state.title ? 
-            <Slide info={this.info} showInfo={this.state.showInfo} director={this.state.director} title={this.state.title} image={this.state.image[this.state.index]} music={this.state.music[this.state.index]} year={this.state.year} incId={this.incId} decId={this.decId}/>
+            <Slide musicPlay={this.musicPlay} muted={this.state.musicPlay} info={this.info} showInfo={this.state.showInfo} director={this.state.director} title={this.state.title} image={this.state.image[this.state.index]} music={this.state.music[this.state.index]} year={this.state.year} incId={this.incId} decId={this.decId}/>
             :<p>LOADING</p>
           }
         </div>

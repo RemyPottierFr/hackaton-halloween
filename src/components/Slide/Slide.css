@@ -56,6 +56,9 @@
   .info--hidden p {
       display: none;
   }
+  .info--hidden .button--muted{
+      display:none;
+  }
   .info--show{
       transition: ease 0.3s;
       opacity: 1;
@@ -86,4 +89,13 @@
       margin-top: 25px;
       font-size: 16px;
       color:white;
+  }
+  .button--muted{
+      position: relative;
+      margin-top: -100vh;
+      margin:auto;
+      font-size: 20px;
+      position: absolute;
+      bottom: 2%;
+      right: 25%;
   }
