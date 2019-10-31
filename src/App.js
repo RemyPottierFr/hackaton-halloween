@@ -17,7 +17,7 @@ class App extends Component {
       title:null,
       year:null,
       showInfo:false,
-      musicPlay:false
+      musicPlay:true
     }
   }
   componentDidMount(){
@@ -36,7 +36,7 @@ class App extends Component {
       })
   }
   incId = () => {
-    this.state.index === this.state.id.length - 1
+      this.state.index === this.state.id.length - 1
       ? this.setState({ index: 0 })
       : this.setState(prevState => {
         return ({ index: prevState.index + 1})
@@ -46,12 +46,12 @@ class App extends Component {
       : this.request(this.state.id[this.state.index+1])
   }
   decId = () => {
-    this.state.index === 0
+      this.state.index === 0
       ? this.setState({ index: this.state.id.length - 1 })
       : this.setState(prevState => {
         return ({ index: prevState.index - 1})
       })
-    this.state.index === 0
+      this.state.index === 0
     ? this.request(this.state.id[this.state.id.length - 1])
     : this.request(this.state.id[this.state.index - 1])
   }
