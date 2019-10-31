@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Faster+One|Hind&display=swap');
+
+.Footer {
+    width: 100%;
+    background-color: #B80D17;
+    color: white;
+    display:flex;
+    justify-content: space-around;
+    padding: 25px;
+}
+
+.Footer-img {
+    width: 5%;
+}
+
+.Footer-logo {
+    width: 30%;
+}
+.Footer-text{
+    text-align: left;
+    font-weight: 500;
+}
