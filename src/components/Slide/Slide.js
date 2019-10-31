@@ -2,13 +2,10 @@ import React,{Component} from 'react';
 import './Slide.css'
 
 class Slide extends Component {
-    constructor(props) {
-        super(props)
-    }
     render(){
         return(
             <div className="slide">
-                <audio autoPlay muted={this.props.muted ? true:false}
+                <audio autoPlay muted={this.props.muted ? true : false}
                     source src={`https://raw.githubusercontent.com/RemyPottierFr/hackaton-halloween/feature/music/${this.props.music}.mp3`} type = {`audio/mp3`} >
                 </audio>
                 <button className="button--previous" onClick={e => this.props.decId()}><i className="fas fa-chevron-left"></i></button>
@@ -18,7 +15,7 @@ class Slide extends Component {
                     <p className="info__title">{this.props.title}</p>
                     <p className="info__director">{this.props.director}, {this.props.year}</p>
                     <p className="info__desc">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi, corrupti. Ratione, totam amet nisi distinctio excepturi voluptate sapiente neque quibusdam vitae dignissimos sequi eum assumenda illum. Nam, libero pariatur culpa ipsa tenetur quo, accusantium enim illum, ex iste quisquam molestias esse fugiat quasi voluptatem ratione officia corporis nostrum optio vitae.</p>
-                <button className="button--muted" onClick={e => this.props.musicPlay()}>{this.props.muted ? "Mute":"Unmute"}</button>
+                    <button className="button--muted" onClick={e => this.props.musicPlay()}>{this.props.muted ? <i className="fas fa-volume-up"></i>:<i className="fas fa-volume-mute"></i>}</button>
                 </div>
                 <button className="button--next" onClick={e => this.props.incId()}><i className="fas fa-chevron-right"></i></button>
             </div>
