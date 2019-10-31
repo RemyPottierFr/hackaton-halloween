@@ -1,27 +1,21 @@
 import React,{Component} from 'react';
 import './App.css';
-import Slide from './components/Slide';
 import Header from './components/Header/Header';
 
 class App extends Component {
     constructor(props) {
         super(props)
+        this.state={
+          showHeader: true
+        }
     }
-    slide(){
-      console.log('hello')
-      let index = []
-      for(let i = 1; i<83;i++){
-        index.push(i)
-      }
-      console.log(index)
-      return index.map(x=> {
-      return <Slide id={x} />
-    })
+    changeHeader = () => {
+      this.setState({showHeader: !this.state.showHeader})
     }
     render(){
       return(
         <div className="App">
-          <Header />          
+          <Header show={this.state.showHeader} changeHeader={this.changeHeader}/>          
         </div>
       )
     }
