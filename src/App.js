@@ -2,6 +2,8 @@ import React, {
   Component
 } from 'react';
 import './App.css';
+import Footer from './components/Footer/Footer.js'
+import Header from './components/Header/Header';
 import Slide from './components/Slide/Slide'
 import axios from 'axios'
 
@@ -18,7 +20,8 @@ class App extends Component {
       title:null,
       year:null,
       showInfo:false,
-      musicPlay:true
+      musicPlay:true,
+      showHeader: true
     }
   }
   componentDidMount(){
@@ -65,9 +68,13 @@ class App extends Component {
   musicPlay = () =>{
     this.state.musicPlay ? this.setState({musicPlay:false}):this.setState({musicPlay:true})
   }
+    changeHeader = () => {
+      this.setState({showHeader: !this.state.showHeader})
+    }
   render() {
     return ( 
       <div className = "App" >
+       <Header show={this.state.showHeader} changeHeader={this.changeHeader}/>
         <div id="content">
           {
             this.state.title ? 
@@ -87,6 +94,7 @@ class App extends Component {
             :<p>LOADING</p>
           }
         </div>
+           <Footer />
       </div>
     )
   }
