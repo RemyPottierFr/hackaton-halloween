@@ -1,6 +1,5 @@
 import React,{Component} from 'react';
 import './App.css';
-import Slide from './components/Slide'
 import Footer from './components/Footer/Footer.js'
 import Header from './components/Header/Header';
 
