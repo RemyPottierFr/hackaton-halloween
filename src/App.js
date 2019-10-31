@@ -1,5 +1,7 @@
 import React,{Component} from 'react';
 import './App.css';
+import Slide from './components/Slide'
+import Footer from './components/Footer/Footer.js'
 import Header from './components/Header/Header';
 
 class App extends Component {
@@ -15,7 +17,8 @@ class App extends Component {
     render(){
       return(
         <div className="App">
-          <Header show={this.state.showHeader} changeHeader={this.changeHeader}/>          
+          <Header show={this.state.showHeader} changeHeader={this.changeHeader}/>
+          <Footer />
         </div>
       )
     }
