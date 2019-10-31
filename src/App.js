@@ -7,6 +7,7 @@ import Header from './components/Header/Header';
 import Slide from './components/Slide/Slide'
 import axios from 'axios'
 
+
 class App extends Component {
   constructor(props) {
     super(props)
@@ -27,8 +28,8 @@ class App extends Component {
       title:null,
       year:null,
       showInfo:false,
-      musicPlay:false,
-      showHeader: false
+      musicPlay:true,
+      showHeader: true
     }
   }
   componentDidMount(){
