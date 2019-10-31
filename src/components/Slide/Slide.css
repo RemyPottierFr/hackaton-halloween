@@ -55,6 +55,9 @@
   .info--hidden .button--muted{
       display:none;
   }
+  .info--hidden .synopsis{
+    display:none;
+  }
   .info--show{
       transition: ease 0.3s;
       opacity: 1;
@@ -94,7 +97,7 @@
       margin:auto;
       font-size: 30px;
       position: absolute;
-      bottom: 2%;
+      bottom: 0px;
       right: 25%;
       padding: 10px;
       border:none;
@@ -104,6 +107,7 @@
   .synopsis{
     display: flex;
     justify-content: space-around;
+    align-items: center;
   }
   .synopsis__right{
       display: flex;
