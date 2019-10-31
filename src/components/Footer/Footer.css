@@ -7,9 +7,11 @@
     display:flex;
     justify-content: space-around;
     padding: 25px;
+    box-sizing: border-box;
 }
 
 .Footer-img {
+    display:block;
     width: 5%;
 }
 
@@ -19,4 +21,33 @@
 .Footer-text{
     text-align: left;
     font-weight: 500;
+}
+@media (max-width: 992px) {
+.Footer-img {
+   display:none;
+}
+}
+@media (max-width: 768px) {
+.Footer-img {
+   display:none;
+}
+.Footer-logo{
+    width: 70%;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+.Footer{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+.Footer-text{
+    text-align: center;
+}
+}
+@media (max-width: 576px) {
+.Footer-img {
+   display:none;
+}
 }
