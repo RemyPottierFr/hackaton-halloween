@@ -14,6 +14,7 @@ class App extends Component {
       music:["Saw Theme Song- Hello Zepp","Theme from Psycho (1960) - Shower Scene HQ","Shining","dawn of the dead main theme","Hans Erdmann - Nosferatu [Main Theme] (1922)"],
       index:0,
       director:null,
+      posterUrl:null,
       title:null,
       year:null,
       showInfo:false,
@@ -28,10 +29,12 @@ class App extends Component {
     axios.get(url)
       .then( response => response.data )
       .then( movies =>{
+        console.log(movies)
         this.setState({
           director:movies.movie.director,
           title:movies.movie.title,
-          year:movies.movie.year
+          year:movies.movie.year,
+          posterUrl:movies.movie.posterUrl
         })
       })
   }
@@ -79,6 +82,7 @@ class App extends Component {
                 music={this.state.music[this.state.index]} 
                 year={this.state.year} incId={this.incId} 
                 decId={this.decId}
+                posterUrl={this.state.posterUrl}
               />
             :<p>LOADING</p>
           }

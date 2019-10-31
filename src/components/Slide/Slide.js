@@ -27,8 +27,22 @@ class Slide extends Component {
                 </button>
                 <div className={this.props.showInfo ? "info--show":"info--hidden"}>
                         <p className="info__title">{this.props.title}</p>
-                        <p className="info__director">{this.props.director}, {this.props.year}</p>
-                        <p className="info__desc">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi, corrupti. Ratione, totam amet nisi distinctio excepturi voluptate sapiente neque quibusdam vitae dignissimos sequi eum assumenda illum. Nam, libero pariatur culpa ipsa tenetur quo, accusantium enim illum, ex iste quisquam molestias esse fugiat quasi voluptatem ratione officia corporis nostrum optio vitae.</p>
+                        <div className="synopsis"> 
+                                <img 
+                                    className="image__poster"
+                                    src={`${this.props.posterUrl}`}
+                                    alt={this.props.id} 
+                                />
+                            <div className="synopsis__left">
+                                <p className="info__director">{this.props.director}, {this.props.year}</p>
+                                <p className="info__desc">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi, corrupti.
+                                    Ratione, totam amet nisi distinctio excepturi voluptate sapiente neque quibusdam vitae dignissimos sequi
+                                    eum assumenda illum. Nam, 
+                                    libero pariatur culpa ipsa tenetur quo, accusantium enim illum, ex iste quisquam molestias esse fugiat 
+                                    quasi voluptatem ratione officia corporis nostrum optio vitae.
+                                </p>
+                            </div>
+                        </div>
                     <button 
                         className="button--muted" 
                          onClick={e => this.props.musicPlay()}>
