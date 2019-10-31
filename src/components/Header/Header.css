@@ -11,8 +11,22 @@
 }
 
 .logo-scream {
-    margin-left: 40vh;
-    width: 79%;
-    margin-top: -59px;
+    margin-left: 54vh;
+    width: 40%;
+    margin-top: -160px;
     filter: brightness(0) invert(1);
+}
+
+.header-hidden{
+    overflow: hidden;
+    width: 2.75vw;
+    position: relative;
+    transition: ease 0.8s;
+}
+
+.header-show{
+    width: 100vw;
+    position: relative;
+    transition: ease 1s;
+    overflow: hidden;
 }
